@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import { Button, Col, Container, Row, Spinner } from 'reactstrap'
-import { intervalToDuration, isBefore } from "date-fns"
+// import { intervalToDuration, isBefore } from "date-fns"
 import Kehadiran from '../components/modal/Kehadiran'
 import Loading from '../components/loading'
 import io from '../helpers/socket';
@@ -16,29 +16,29 @@ import Woman from '../assets/img/woman-1.png'
 import Woman1 from '../assets/img/woman-2.png'
 import { fetchList } from '../services/api';
 
-const futureDate = new Date("2022-02-20 10:00:00")
+// const futureDate = new Date("2022-02-20 10:00:00")
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [now, setNow] = useState(new Date())
+  // const [now, setNow] = useState(new Date())
   const [listTamu, setListTamu] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
   const toggle = () => setIsOpen(!isOpen)
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setNow(new Date());
-    }, 1000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setNow(new Date());
+  //   }, 1000);
 
-    if (new Date(now) > futureDate) {
-      clearInterval(interval);
-    }
+  //   if (new Date(now) > futureDate) {
+  //     clearInterval(interval);
+  //   }
 
-    return () => {
-      clearInterval(interval);
-    };
-  }, [now]);
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, [now]);
 
   useEffect(() => {
     io.on('list', (data) => {
@@ -65,12 +65,12 @@ const Home = () => {
     fetchListTamu();
   }, []);
 
-  const isTimeUp = isBefore(futureDate, now);
+  // const isTimeUp = isBefore(futureDate, now);
 
-  let { days, hours, minutes, seconds } = intervalToDuration({
-    start: now,
-    end: futureDate
-  });
+  // let { days, hours, minutes, seconds } = intervalToDuration({
+  //   start: now,
+  //   end: futureDate
+  // });
 
   const Img = [Man, Man1, Woman, Woman1]
 
@@ -158,7 +158,7 @@ const Home = () => {
             </div>
             <div className="save-date">
               <SaveDate />
-              <Row>
+              {/* <Row>
                 <Col md={3} sm={3} xs={3}>
                   <h4>{isTimeUp ? '0' : days}</h4>
                   <p>Days</p>
@@ -175,7 +175,7 @@ const Home = () => {
                   <h4>{isTimeUp ? '0' : seconds}</h4>
                   <p>Seconds</p>
                 </Col>
-              </Row>
+              </Row> */}
             </div>
             <div className="text-center">
               <h4 className="title mt-3">Buku Tamu</h4>
