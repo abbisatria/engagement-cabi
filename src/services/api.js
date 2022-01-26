@@ -8,3 +8,10 @@ export const fetchList = async () => {
 
   return response.data;
 }
+
+export const setList = async (payload) => {
+  const URL = '/guest'
+  const response = await http.post(`${API_VERSION}${URL}`, payload)
+
+  return response.data;
+}

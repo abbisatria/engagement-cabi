@@ -179,22 +179,24 @@ const Home = () => {
             </div>
             <div className="text-center">
               <h4 className="title mt-3">Buku Tamu</h4>
-              <div className="chat">
-                {isLoading && <Loading />}
-                {listTamu.length > 0 && listTamu.map((val, idx) => (
-                  <div className="card-chat" key={String(idx)}>
-                    <div className="image">
-                      <img src={Img[val.avatar - 1]} alt="man" />
+              {isLoading && <Loading />}
+              {listTamu.length > 0 && (
+                <div className="chat">
+                  {listTamu.map((val, idx) => (
+                    <div className="card-chat" key={String(idx)}>
+                      <div className="image">
+                        <img src={Img[val.avatar - 1]} alt="man" />
+                      </div>
+                      <div>
+                        <h6>{val.name}</h6>
+                        <p>{val.ucapan}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h6>{val.name}</h6>
-                      <p>{val.ucapan}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
             </div>
-            <div className="footer mt-3">
+            <div className="footer mt-5">
               <h3>Thank You!</h3>
             </div>
           </div>
