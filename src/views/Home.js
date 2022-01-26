@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Button, Col, Container, Row, Spinner } from 'reactstrap'
-// import { intervalToDuration, isBefore } from "date-fns"
 import Kehadiran from '../components/modal/Kehadiran'
 import Loading from '../components/loading'
 import io from '../helpers/socket';
@@ -16,29 +15,50 @@ import Woman from '../assets/img/woman-1.png'
 import Woman1 from '../assets/img/woman-2.png'
 import { fetchList } from '../services/api';
 
-// const futureDate = new Date("2022-02-20 10:00:00")
-
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false)
-  // const [now, setNow] = useState(new Date())
   const [listTamu, setListTamu] = useState([])
   const [isLoading, setIsLoading] = useState(false)
+  const [timerDays, setTimerDays] = useState('00');
+  const [timerHours, setTimerHours] = useState('00');
+  const [timerMinutes, setTimerMinutes] = useState('00');
+  const [timerSeconds, setTimerSeconds] = useState('00');
+
+  let interval = useRef();
+
+  const startTimer = () => {
+    const countdownDate = new Date('2022-02-20 10:00:00').getTime();
+
+    interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24))
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      if (distance < 0 ) {
+        clearInterval(interval.current);
+      } else {
+        setTimerDays(days);
+        setTimerHours(hours);
+        setTimerMinutes(minutes);
+        setTimerSeconds(seconds);
+      }
+    }, 1000)
+
+  }
+
+  useEffect(() => {
+    startTimer();
+    return () => {
+      clearInterval(interval.current);
+    }
+  })
+
 
   const toggle = () => setIsOpen(!isOpen)
-
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setNow(new Date());
-  //   }, 1000);
-
-  //   if (new Date(now) > futureDate) {
-  //     clearInterval(interval);
-  //   }
-
-  //   return () => {
-  //     clearInterval(interval);
-  //   };
-  // }, [now]);
 
   useEffect(() => {
     io.on('list', (data) => {
@@ -149,7 +169,7 @@ const Home = () => {
             <div className="text-center mt-3">
               <h4 className="title">Google Maps</h4>
               <div className="maps">
-                {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.2618797793625!2d108.57353301477326!3d-6.978395894958691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xae349ec394de1ebd!2zNsKwNTgnNDIuMiJTIDEwOMKwMzQnMzIuNiJF!5e0!3m2!1sen!2sid!4v1642387948960!5m2!1sen!2sid" width="250" height="250" style={{ border: 0 }} allowFullScreen={true} loading="lazy" title="maps"></iframe> */}
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.2618797793625!2d108.57353301477326!3d-6.978395894958691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xae349ec394de1ebd!2zNsKwNTgnNDIuMiJTIDEwOMKwMzQnMzIuNiJF!5e0!3m2!1sen!2sid!4v1642387948960!5m2!1sen!2sid" width="250" height="250" style={{ border: 0 }} allowFullScreen={true} loading="lazy" title="maps"></iframe>
                 <Button className="mt-2" type="button" color="success" size="sm" onClick={() => window.open('https://goo.gl/maps/KQFAPZnT4iE85Yqv9')}>Lihat Maps</Button>
               </div>
             </div>
@@ -158,24 +178,24 @@ const Home = () => {
             </div>
             <div className="save-date">
               <SaveDate />
-              {/* <Row>
+              <Row>
                 <Col md={3} sm={3} xs={3}>
-                  <h4>{isTimeUp ? '0' : days}</h4>
+                  <h4>{timerDays}</h4>
                   <p>Days</p>
                 </Col>
                 <Col md={3} sm={3} xs={3}>
-                  <h4>{isTimeUp ? '0' : hours}</h4>
+                  <h4>{timerHours}</h4>
                   <p>Hours</p>
                 </Col>
                 <Col md={3} sm={3} xs={3}>
-                  <h4>{isTimeUp ? '0' : minutes}</h4>
+                  <h4>{timerMinutes}</h4>
                   <p>Minutes</p>
                 </Col>
                 <Col md={3} sm={3} xs={3}>
-                  <h4>{isTimeUp ? '0' : seconds}</h4>
+                  <h4>{timerSeconds}</h4>
                   <p>Seconds</p>
                 </Col>
-              </Row> */}
+              </Row>
             </div>
             <div className="text-center">
               <h4 className="title mt-3">Buku Tamu</h4>
