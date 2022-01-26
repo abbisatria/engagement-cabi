@@ -149,7 +149,7 @@ const Home = () => {
             <div className="text-center mt-3">
               <h4 className="title">Google Maps</h4>
               <div className="maps">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.2618797793625!2d108.57353301477326!3d-6.978395894958691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xae349ec394de1ebd!2zNsKwNTgnNDIuMiJTIDEwOMKwMzQnMzIuNiJF!5e0!3m2!1sen!2sid!4v1642387948960!5m2!1sen!2sid" width="250" height="250" style={{ border: 0 }} allowFullScreen={true} loading="lazy" title="maps"></iframe>
+                {/* <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.2618797793625!2d108.57353301477326!3d-6.978395894958691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xae349ec394de1ebd!2zNsKwNTgnNDIuMiJTIDEwOMKwMzQnMzIuNiJF!5e0!3m2!1sen!2sid!4v1642387948960!5m2!1sen!2sid" width="250" height="250" style={{ border: 0 }} allowFullScreen={true} loading="lazy" title="maps"></iframe> */}
                 <Button className="mt-2" type="button" color="success" size="sm" onClick={() => window.open('https://goo.gl/maps/KQFAPZnT4iE85Yqv9')}>Lihat Maps</Button>
               </div>
             </div>
