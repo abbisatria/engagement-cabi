@@ -27,7 +27,11 @@ const Home = () => {
   let interval = useRef();
 
   const startTimer = () => {
-    const countdownDate = new Date('2022-02-20 10:00:00').getTime();
+    let countdownDate = new Date('2022-02-20 10:00:00').getTime();
+
+    if (countdownDate === 'Invalid Date') {
+      countdownDate = new Date('2022/02/20 10:00:00').getTime();
+    }
 
     interval = setInterval(() => {
       const now = new Date().getTime();
