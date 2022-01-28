@@ -42,6 +42,16 @@
     display: flex;
     justify-content: center;
     margin: 2% 0;
+    width: 100%;
+
+    img {
+      width: 350px;
+      height: 350px;
+      @media screen and (max-width: 768px) {
+        width: 250px;
+        height: 250px;
+      }
+    }
   }
 
   h6 {
@@ -102,6 +112,7 @@
   }
 
   .frame-mempelai {
+    margin-bottom: 15px;
     .image {
       width: 100%;
       img {

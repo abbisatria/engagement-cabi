@@ -25,12 +25,17 @@ const Kehadiran = ({ isOpen, toggle }) => {
         name: fullName,
         email,
         ucapan,
-        avatar
+        avatar: avatar + 1
       }
       const { success } = await setList(payload);
       if (success) {
         setIsloading(false)
         Swal.fire('Success', 'Terimakasih telah mengkonfirmasi kehadiran ✌️', 'success').then(() => {
+          setAvatar(0)
+          setFullName('')
+          setEmail('')
+          setEmail('')
+          setUcapan('')
           toggle()
         })
       }

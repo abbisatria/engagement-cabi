@@ -4,11 +4,16 @@ import { Button, Col, Container, Row, Spinner } from 'reactstrap'
 import Kehadiran from '../components/modal/Kehadiran'
 import Loading from '../components/loading'
 import io from '../helpers/socket';
-import { ReactComponent as Image } from '../assets/img/img-partner.svg'
+// import { ReactComponent as Image } from '../assets/img/img-partner.svg'
 import { ReactComponent as Prokes } from '../assets/img/prokes.svg'
 import { ReactComponent as SaveDate } from '../assets/img/save-date.svg'
 import Abbi from '../assets/img/abbi.png'
 import Tasya from '../assets/img/tasya.png'
+import Couple from '../assets/img/couple.jpg'
+import Couple1 from '../assets/img/couple1.png'
+import Couple2 from '../assets/img/couple2.png'
+import Couple3 from '../assets/img/couple3.png'
+import Partner from '../assets/img/cop.png'
 import Man from '../assets/img/man-1.png'
 import Man1 from '../assets/img/man-2.png'
 import Woman from '../assets/img/woman-1.png'
@@ -106,7 +111,7 @@ const Home = () => {
             <p>Engagement Invitation</p>
             <h3>Abbi & Tasya</h3>
             <div className="image">
-              <Image />
+              <img src={Partner} alt="partner" />
             </div>
             <h6>20 Februari 2022</h6>
           </div>
@@ -131,26 +136,34 @@ const Home = () => {
                   <img src={Tasya} alt="tasya" />
                 </div>
                 <h4>Tasya Salsaliantika</h4>
-                <p>Seorang wanita baik</p>
               </div>
               <div className="frame-mempelai">
                 <div className="image">
                   <img src={Abbi} alt="abbi" />
                 </div>
                 <h4>Abbi Satria</h4>
-                <p>Seorang pria perkasa</p>
               </div>
             </div>
             <div className="text-center">
               <h3 className="title">Galeri</h3>
               <div className="frame-mempelai mb-3">
                 <div className="image">
-                  <img src={Tasya} alt="tasya" />
+                  <img src={Couple} alt="couple" />
                 </div>
               </div>
               <div className="frame-mempelai mb-3">
                 <div className="image">
-                  <img src={Abbi} alt="abbi" />
+                  <img src={Couple1} alt="couple1" />
+                </div>
+              </div>
+              <div className="frame-mempelai mb-3">
+                <div className="image">
+                  <img src={Couple2} alt="couple2" />
+                </div>
+              </div>
+              <div className="frame-mempelai mb-3">
+                <div className="image">
+                  <img src={Couple3} alt="couple3" />
                 </div>
               </div>
             </div>
