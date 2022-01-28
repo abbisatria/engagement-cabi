@@ -20,24 +20,28 @@ const Kehadiran = ({ isOpen, toggle }) => {
   const submit = async (e) => {
     e.preventDefault()
     try {
-      setIsloading(true)
-      const payload = {
-        name: fullName,
-        email,
-        ucapan,
-        avatar: avatar + 1
-      }
-      const { success } = await setList(payload);
-      if (success) {
-        setIsloading(false)
-        Swal.fire('Success', 'Terimakasih telah mengkonfirmasi kehadiran ✌️', 'success').then(() => {
-          setAvatar(0)
-          setFullName('')
-          setEmail('')
-          setEmail('')
-          setUcapan('')
-          toggle()
-        })
+      if (fullName && email) {
+        setIsloading(true)
+        const payload = {
+          name: fullName,
+          email,
+          ucapan,
+          avatar: avatar + 1
+        }
+        const { success } = await setList(payload);
+        if (success) {
+          setIsloading(false)
+          Swal.fire('Success', 'Terimakasih telah mengkonfirmasi kehadiran ✌️', 'success').then(() => {
+            setAvatar(0)
+            setFullName('')
+            setEmail('')
+            setEmail('')
+            setUcapan('')
+            toggle()
+          })
+        }
+      } else {
+        Swal.fire('Error', 'Fullname & email wajib diisi!!', 'error')
       }
     } catch (err) {
       setIsloading(false)
