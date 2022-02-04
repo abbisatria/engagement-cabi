@@ -3,6 +3,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;700&family=Mochiy+Pop+P+One&family=Montserrat:ital,wght@0,100;0,300;0,400;0,500;0,700;1,400;1,500;1,700&family=Poppins:ital,wght@0,100;0,400;0,500;0,700;1,500;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 
+.play-music {
+  position: fixed;
+  right: 45px;
+  bottom: 20px;
+  z-index: 9999;
+
+  button {
+    border-radius: 50%;
+    padding: 8px 10px;
+    border: none;
+    background-color: #FDD690;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  @media screen and (max-width: 768px) {
+    right: 25px;
+  }
+}
+
 .bg-fallback {
   min-width: 100vh;
   min-height: 100vh;
@@ -67,7 +86,67 @@
   }
 }
 
+.welcome {
+  background-image: url('https://images.ctfassets.net/q40z6pfqje6o/1gMLKDbCOGaWyxBDdmhG9o/1dd56a82613b7da888cbe369aa8d849f/New_Project__65_.png');
+  background-size: cover;
+  text-align: center;
+  color: rgb(177, 145, 121);
+
+  p {
+    font-size: 1rem;
+    text-align: center;
+    font-family: 'Montserrat';
+  }
+
+  h3 {
+    text-align: center;
+    font-family: 'Mochiy Pop P One';
+  }
+
+  .image {
+    display: flex;
+    justify-content: center;
+    margin: 2% 0;
+    width: 100%;
+
+    img {
+      width: 250px;
+      height: 250px;
+      @media screen and (max-width: 768px) {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  }
+
+  h6 {
+    font-family: 'Montserrat';
+    width: fit-content;
+    text-align: center;
+    color: rgb(104, 99, 95);
+    text-transform: uppercase;
+    background: rgb(253, 214, 144);
+    font-size: 17px;
+    font-weight: 800;
+    margin: 15% auto 5%;
+  }
+
+  button {
+    color: rgb(104, 99, 95);
+    background-color: rgb(253, 214, 144);
+    border-color: rgb(253, 214, 144);
+    font-weight: 600;
+
+    &:hover {
+      color: rgb(104, 99, 95);
+      background-color: rgb(253, 214, 144);
+      border-color: rgb(253, 214, 144);
+    }
+  }
+}
+
 .content {
+  background-color: #FBFCF4;
   @media screen and (min-width: 768px) {
     overflow-y: scroll;
     overflow-x: hidden;
@@ -76,10 +155,16 @@
     height: 100vh;
   }
 
+  .wrapper {
+    padding: 10px 0;
+    background-image: url('https://cdn-uploads.our-wedding.link/517ba940-a962-11eb-a446-b74a1a11a583.webp');
+    background-size: cover;
+  }
+
   .header {
     font-family: 'Montserrat';
     font-size: 14px;
-    color: #333;
+    color: black;
     font-weight: 400;
     text-align: center;
     span {
@@ -111,6 +196,13 @@
     }
   }
 
+  .galeri {
+    background-image: url('https://images.ctfassets.net/q40z6pfqje6o/XHA6m4iOMt7HzDqAclLvl/0280a39e4443322dd5450954a6424e4f/New_Project__67_.png');
+    background-position-x: center;
+    background-position-y: center;
+    background-size: cover;
+  }
+
   .frame-mempelai {
     margin-bottom: 15px;
     .image {
@@ -122,6 +214,12 @@
       }
     }
   }
+
+  .undangan {
+    background-image: url('https://images.ctfassets.net/q40z6pfqje6o/W45YYZF0qjDWyKC0273qV/b25c0d758fa23ed8bcfb1ae6a7831a3d/New_Project__60___1_.png');
+    background-size: cover;
+    padding: 0 10px;
+  }
   
   .mempelai-undangan {
     margin: 10px 0;
@@ -132,7 +230,7 @@
     }
     p {
       font-family: 'Montserrat';
-      font-weight: 400;
+      font-weight: 500;
       color: #333;
       font-size: 14px;
       margin-bottom: 0;
@@ -207,10 +305,15 @@
   }
 
   .footer {
+    background-image: url('https://images.ctfassets.net/q40z6pfqje6o/1gMLKDbCOGaWyxBDdmhG9o/1dd56a82613b7da888cbe369aa8d849f/New_Project__65_.png');
+    background-size: cover;
+    padding-top: 30vh;
     h3 {
       font-family: 'Dancing Script';
       font-size: 25pt;
+      font-weight: 600;
       text-align: center;
+      margin-bottom: 0;
     }
   }
 }
